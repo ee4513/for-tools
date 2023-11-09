@@ -20,8 +20,8 @@ if not exist "removeTexCmd.js" (
 
 
 REM Create output directory if not present
-if not exist "no-texture" (
-    mkdir no-texture
+if not exist "output2" (
+    mkdir output2
 )
 
 REM Initialize log file
@@ -29,13 +29,13 @@ echo. > texture_log.txt
 
 REM Loop through all FBX files in the current directory and convert to GLB
 for %%f in (*.glb) do (
-    set "input=%%f"
-    set "output=no-texture\%%~nf.glb"
+    set "input=output\%%f"
+    set "output=output2\%%~nf.glb"
     node removeTexCmd.js !input! !output!
     if !errorlevel! neq 0 (
-        echo Error removing !input! from GLB format.
+        echo Error removing !input! from GLB format. >> texture_log.txt
     ) else (
-        echo Removed-texture-From !input! to !output!
+        echo Removed-texture-From !input! to !output! >> texture_log.txt
     )
 )
 
