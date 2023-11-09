@@ -24,6 +24,9 @@ if not exist "no-texture" (
     mkdir no-texture
 )
 
+REM Initialize log file
+echo. > texture_log.txt
+
 REM Loop through all FBX files in the current directory and convert to GLB
 for %%f in (*.glb) do (
     set "input=%%f"
