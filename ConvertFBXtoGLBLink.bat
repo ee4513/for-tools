@@ -34,4 +34,4 @@ for %%f in (*.fbx) do (
 )
 
 echo All FBX files converted to GLB and saved in the output directory.
-pause
+exit
